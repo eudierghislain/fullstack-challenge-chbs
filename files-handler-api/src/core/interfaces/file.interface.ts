@@ -1,0 +1,1 @@
+export interface File { name: string; size: number; lastModified: Date }

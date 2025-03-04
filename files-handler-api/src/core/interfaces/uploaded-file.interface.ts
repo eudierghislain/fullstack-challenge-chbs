@@ -1,0 +1,1 @@
+export interface UploadedFile { filename: string; size: number; etag: string }

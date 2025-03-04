@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Residential Lease Agreement</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            padding: 40px;
+            line-height: 1.5;
+            font-size: 14px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .title {
+            font-size: 26px;
+            font-weight: 900;
+            margin: 0 0 30px 0;
+            text-transform: uppercase;
+        }
+
+        .main-info {
+            margin-bottom: 25px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin: 0 0 15px 0;
+        }
+
+        .section-divider {
+            border-bottom: 1px solid #ccc;
+            margin: 20px 0;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        li {
+            padding-left: 25px;
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        li:before {
+            content: "•";
+            position: absolute;
+            left: 5px;
+        }
+
+        .signatures {
+            margin-top: 50px;
+        }
+
+        .signature-block {
+            margin-top: 30px;
+        }
+
+        .signature-line {
+            border-top: 1px solid #000;
+            display: inline-block;
+            width: 60%;
+            margin-bottom: 5px;
+        }
+
+        .signature-label {
+            font-weight: 700;
+        }
+
+        .date {
+            text-align: right;
+            margin-top: 20px;
+            font-style: italic;
+        }
+
+        .landlord-info,
+        .tenant-info,
+        .property-info {
+            margin-bottom: 15px;
+        }
+
+        .pen-icon::before {
+            content: "✍";
+            margin-right: 5px;
+        }
+
+        .highlight {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="date">
+        <p>Generated on: {{generationDate}}</p>
+    </div>
+
+    <div class="header">
+        <h1 class="title">RESIDENTIAL LEASE AGREEMENT</h1>
+    </div>
+
+    <div class="main-info">
+        <p>This <span class="highlight">Lease Agreement</span> ("Agreement") is made and entered into on this <span
+                class="highlight">{{agreementDate}}</span>, by and between:</p>
+
+        <div class="landlord-info">
+            <p><span class="highlight">Landlord:</span> {{landlord}}</p>
+            <p><span class="highlight">Address:</span> {{landlordAddress}}</p>
+        </div>
+
+        <div class="tenant-info">
+            <p><span class="highlight">Tenant:</span> {{tenant}}</p>
+        </div>
+
+        <div class="property-info">
+            <p><span class="highlight">Property Address:</span> {{propertyAddress}}</p>
+        </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div class="section">
+        <h2 class="section-title">1. TERM OF LEASE</h2>
+        <p>The lease term begins on <span class="highlight">{{leaseStart}}</span> and ends on <span
+                class="highlight">{{leaseEnd}}</span>, unless otherwise terminated under the terms of this agreement.
+        </p>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div class="section">
+        <h2 class="section-title">2. RENT PAYMENTS</h2>
+        <p>The Tenant agrees to pay <span class="highlight">${{rentAmount}} per month</span>, due on the <span
+                class="highlight">{{rentDueDay}} day of each month</span>. Rent shall be paid via <span
+                class="highlight">{{paymentMethod}}</span> to the Landlord's account.</p>
+        <p>A late fee of <span class="highlight">${{lateFee}}</span> shall be charged if rent is not received within
+            <span class="highlight">{{gracePeriod}} days</span> of the due date.
+        </p>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div class="section">
+        <h2 class="section-title">3. SECURITY DEPOSIT</h2>
+        <p>The Tenant shall pay a security deposit of <span class="highlight">${{securityDeposit}}</span> before moving
+            in. This deposit will be refunded within <span class="highlight">{{depositReturnDays}} days</span> after the
+            lease ends, minus any deductions for damages.</p>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div class="section">
+        <h2 class="section-title">4. USE OF PROPERTY</h2>
+        <p>The Tenant shall use the premises solely for <span class="highlight">residential purposes</span> and shall
+            not engage in illegal activities on the property.</p>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div class="section">
+        <h2 class="section-title">5. UTILITIES & MAINTENANCE</h2>
+        <ul>
+            <li>The <span class="highlight">Tenant</span> shall be responsible for paying for <span
+                    class="highlight">{{tenantUtilities}}</span>.</li>
+            <li>The <span class="highlight">Landlord</span> shall be responsible for <span
+                    class="highlight">{{landlordUtilities}}</span>.</li>
+            <li>The Tenant agrees to keep the property clean and report any needed repairs to the Landlord.</li>
+        </ul>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div class="section">
+        <h2 class="section-title">6. PET POLICY</h2>
+        <p>{{petPolicy}}</p>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div class="section">
+        <h2 class="section-title">7. SUBLETTING & GUESTS</h2>
+        <ul>
+            <li>Subletting is <span class="highlight">NOT allowed</span> without prior written consent from the
+                Landlord.</li>
+            <li>Guests staying more than <span class="highlight">{{guestLimit}} consecutive days</span> must be approved
+                by the Landlord.</li>
+        </ul>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div class="section">
+        <h2 class="section-title">8. TERMINATION & NOTICE</h2>
+        <p>Either party may terminate this lease by providing <span class="highlight">{{noticePeriod}} days' written
+                notice</span>. Early termination by the Tenant may result in forfeiture of the security deposit and an
+            additional penalty of <span class="highlight">{{earlyTerminationPenalty}}</span>.</p>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div class="section">
+        <h2 class="section-title">9. DAMAGE & LIABILITY</h2>
+        <p>The Tenant agrees to be responsible for any damage caused by themselves, guests, or pets. The Landlord is
+            <span class="highlight">not liable</span> for loss or damage to the Tenant's personal belongings.
+        </p>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div class="section">
+        <h2 class="section-title">10. GOVERNING LAW</h2>
+        <p>This Agreement shall be governed by the laws of the State of <span
+                class="highlight">{{governingState}}</span>.</p>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div class="signatures">
+        <h2 class="section-title">SIGNATURES</h2>
+
+        <div class="signature-block">
+            <p class="signature-label">Landlord's Signature: <span class="pen-icon">{{landlord}}</span></p>
+        </div>
+
+        <div class="signature-block">
+            <p class="signature-label">Tenant's Signature: </p>
+            <div class="signature-line"></div>
+            <p>{{tenantSignature}}</p>
+        </div>
+    </div>
+</body>
+
+</html>

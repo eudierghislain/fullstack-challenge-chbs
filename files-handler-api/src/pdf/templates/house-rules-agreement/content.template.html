@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Rules Agreement</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            padding: 40px;
+            line-height: 1.5;
+            font-size: 14px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .title {
+            font-size: 26px;
+            font-weight: 900;
+            margin: 0 0 30px 0;
+            text-transform: uppercase;
+        }
+
+        .landlord-tenant {
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .landlord-tenant p {
+            margin: 5px 0;
+            font-weight: 700;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin: 0 0 15px 0;
+        }
+
+        .section-divider {
+            border-bottom: 1px solid #ccc;
+            margin: 20px 0;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        li {
+            padding-left: 25px;
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        li:before {
+            content: "•";
+            position: absolute;
+            left: 5px;
+        }
+
+        .signatures {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .signature-line {
+            margin-top: 100px;
+        }
+
+        .signature-block {
+            display: inline-block;
+            margin: 0 40px;
+        }
+
+        .signature-label {
+            font-weight: 700;
+            margin-top: 5px;
+        }
+
+        .no-smoking {
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .no-smoking:before {
+            content: "⊘";
+            position: absolute;
+            left: 0;
+            color: red;
+        }
+
+        .date {
+            text-align: right;
+            margin-top: 20px;
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="date">
+        <p>Generated on: {{generationDate}}</p>
+    </div>
+
+    <div class="header">
+        <h1 class="title">HOUSE RULES AGREEMENT</h1>
+    </div>
+
+    <div class="landlord-tenant">
+        <p>Landlord: {{landlord}}</p>
+        <p>Tenant: {{tenant}}</p>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">1. RENT PAYMENT</h2>
+        <ul>
+            <li>Rent is due on the {{dueDate}} of each month.</li>
+            <li>Payments must be made via {{paymentMethod}} to the Landlord's account.</li>
+            <li>A ${{lateFee}} late fee will apply if rent is not received by the {{lateFeeDay}} of the month.</li>
+        </ul>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div class="section">
+        <h2 class="section-title">2. NOISE & DISTURBANCES</h2>
+        <ul>
+            <li>Quiet hours are from {{quietHoursStart}} – {{quietHoursEnd}}.</li>
+            <li>Loud music, television, or parties that disturb neighbors are prohibited.</li>
+            <li>Any complaints from neighbors regarding excessive noise may result in a written warning, and repeated
+                violations may lead to eviction.</li>
+        </ul>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div class="section">
+        <h2 class="section-title">3. GUESTS & VISITORS</h2>
+        <ul>
+            <li>Guests may stay for up to {{guestStayLimit}} consecutive days without prior approval.</li>
+            <li>Extended stays require written consent from the Landlord.</li>
+            <li>Tenants are responsible for their guests' behavior and any damages they cause.</li>
+        </ul>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div class="section">
+        <h2 class="section-title">4. PET POLICY</h2>
+        <p>{{petPolicy}}</p>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div class="section">
+        <h2 class="section-title">5. MAINTENANCE & REPAIRS</h2>
+        <ul>
+            <li>Tenants must report any maintenance issues immediately to the Landlord.</li>
+            <li>Minor issues (changing light bulbs, unclogging drains, etc.) are the Tenant's responsibility.</li>
+            <li>No unauthorized repairs or modifications to the unit are allowed.</li>
+        </ul>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div class="section">
+        <h2 class="section-title">6. CLEANLINESS & TRASH DISPOSAL</h2>
+        <ul>
+            <li>The apartment must be kept clean and free of pests.</li>
+            <li>Trash must be properly bagged and disposed of in the designated trash bins.</li>
+            <li>Recycling should follow the building's guidelines.</li>
+        </ul>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div class="section">
+        <h2 class="section-title">7. SMOKING POLICY</h2>
+        <p class="no-smoking">Smoking is strictly prohibited inside the unit and in common areas.</p>
+        <ul>
+            <li>Violations will result in a ${{smokingFee}} cleaning fee and potential lease termination.</li>
+        </ul>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div class="section">
+        <h2 class="section-title">8. SAFETY & SECURITY</h2>
+        <ul>
+            <li>The front door must be locked at all times.</li>
+            <li>Do not share keys or entry codes with unauthorized persons.</li>
+            <li>Fire alarms and carbon monoxide detectors must not be tampered with.</li>
+        </ul>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div class="section">
+        <h2 class="section-title">9. PARKING & COMMON AREAS</h2>
+        <ul>
+            <li>Tenants may park only in assigned spaces.</li>
+            <li>Unauthorized vehicles will be towed at the owner's expense.</li>
+            <li>Hallways, stairwells, and shared spaces must be kept clear of personal belongings.</li>
+        </ul>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div class="section">
+        <h2 class="section-title">10. LEASE VIOLATIONS & PENALTIES</h2>
+        <ul>
+            <li>Violations of these house rules may result in fines, written warnings, or lease termination.</li>
+            <li>Repeat offenses may lead to eviction.</li>
+        </ul>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div class="signatures">
+        <h2 class="section-title">ACKNOWLEDGMENT & SIGNATURES</h2>
+        <p>By signing below, the Tenant acknowledges receipt of these House Rules and agrees to comply.</p>
+
+        <div class="signature-line">
+            <div class="signature-block">
+                <p>_______________________________</p>
+                <p class="signature-label">Tenant's Signature</p>
+                <p>{{tenantSignature}}</p>
+            </div>
+
+            <div class="signature-block">
+                <p>_______________________________</p>
+                <p class="signature-label">Landlord's Signature</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
