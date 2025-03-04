@@ -4,29 +4,25 @@ This repository contains a Docker-based architecture for running multiple NestJS
 
 ## Architecture Overview
 
-┌─────────────────────────────────────────────────────────────────────────┐
-│                                                                         │
-│  ┌────────────┐                                                         │
-│  │            │                                                         │
-│  │  Frontend  │                                                         │
-│  │   (3001)   │                                                         │
-│  └─────┬──────┘                                                         │
-│        │                                                                │
-│        ▼                                                                │
-│  ┌─────────────┐    ┌─────────────┐    ┌────────────────┐              │
-│  │             │    │             │    │                │              │
-│  │  auth-api   │◄──►│ database-api│◄──►│files-handler-api              │
-│  │  1234/1235  │    │  1236/1237  │    │   1238/1239    │              │
-│  └─────────────┘    └─────┬───────┘    └────────┬───────┘              │
-│                           │                     │                       │
-│                     ┌─────┴──────┐       ┌──────┴──────┐                │
-│                     │            │       │             │                │
-│                     │ PostgreSQL │       │    MinIO    │                │
-│                     │            │       │             │                │
-│                     └────────────┘       └─────────────┘                │
-│                                                                         │
-└─────────────────────────────────────────────────────────────────────────┘
-       Docker Network (app-network) avec Microservices NestJS et Frontend
+![Architecture microservices](./architecture.png)
+
+
+    The entire architecture runs within a Docker network named `app-network`. This network facilitates seamless communication between the microservices and the frontend application.
+
+    - **Network Name**: `app-network`
+    - **Services within the network**:
+      - `auth-api`
+      - `database-api`
+      - `files-handler-api`
+      - `postgres`
+      - `minio`
+      - `frontend`
+
+    Each service can communicate with others using their service names within the Docker network. For example:
+    - `auth-api` can reach `database-api` at `http://database-api:1236`
+    - `files-handler-api` can reach `minio` at `http://minio:9000`
+
+    This setup ensures that all components are isolated from the host machine and can only interact with each other through the defined network, enhancing security and modularity.
 
 ### Components
 
