@@ -4,7 +4,7 @@ This repository contains a Docker-based architecture for running multiple NestJS
 
 ## Architecture Overview
 
-![Architecture microservices](./architecture.png)
+![Architecture microservices](./Architecture.png)
 
 
     The entire architecture runs within a Docker network named `app-network`. This network facilitates seamless communication between the microservices and the frontend application.
